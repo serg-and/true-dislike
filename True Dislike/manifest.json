@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "True Dislike",
+    "version": "0.1",
+    "description": "Retrieves true dislike counts from creators running the extension",
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "storage",
+        "*://studio.youtube.com/*",
+        "webRequest",
+        "webRequestBlocking"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://studio.youtube.com/channel/*",
+                "https://www.youtube.com/*"
+            ],
+            "js": ["content.js"],
+            "all_frames": true
+        }
+    ],
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    }
+}
